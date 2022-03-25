@@ -9,8 +9,11 @@ func HandleRequests() {
 	router := gin.Default()
 
 	router.GET("/alunos", controllers.ExibeTodosAlunos)
-	router.GET("/:nome", controllers.Saudacao)
 	router.POST("/alunos", controllers.CriarNovoAluno)
+	router.GET("/aluno/:id", controllers.BuscaAlunoPorId)
+	router.DELETE("/aluno/:id", controllers.DeletarAluno)
+	router.PUT("/aluno/:id", controllers.EditaAluno)
+	router.GET("/aluno/cpf/:cpf", controllers.BuscaAlunoPorCpf)
 
 	router.Run()
 }
